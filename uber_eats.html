@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <link rel="stylesheet" href="mainLayout.css">
+
+</head>
+<style>
+  /* 上部分样式 */
+  .top {
+    background-color: #eee;
+    color: #333;
+    padding: 20px;
+  }
+
+  /* 上中部分样式 */
+  .top-middle {
+    white-space: nowrap;
+    /* 防止文本换行 */
+    overflow-x: auto;
+    /* 允许横向滚动 */
+    background-color: #fff;
+    padding: 20px;
+  }
+
+  /* 下中部分样式 */
+  .bottom-middle {
+    max-height: 300px;
+    /* 设置下中部分的最大高度，使其可垂直滚动 */
+    overflow-y: auto;
+    /* 允许垂直滚动 */
+    background-color: #fff;
+    padding: 20px;
+  }
+
+  /* 下部分样式 */
+  .bottom {
+    background-color: #fff;
+    color: #fff;
+    padding: 20px;
+  }
+</style>
+
+</head>
+
+<body>
+  <section class="gradient-background">
+
+  </section>
+
+  <div id="mid-area">
+    <div class="top-middle" style="position: relative;">
+      <!-- 返回图标 -->
+      <div class="py-3" style="position: absolute; left: 15px; top: 0px; font-size: 30px;">
+        <a href="index.html"><i class="fa fa-arrow-left"></i></a>
+      </div>
+
+      <!-- 服务图标 -->
+      <div class="row text-center mt-3 py-3">
+        <div class="col py-3">
+          <h2 id="Guidance" class="underline">Guidance</h2>
+        </div>
+
+        <div class="col py-3">
+          <h2 id="Post" style="font-size: 30px;">Post</h2>
+        </div>
+      </div>
+    </div>
+
+    <!--Guidance  -->
+    <div class="col-mt-4" id="Guidance_page">
+      <div class="col-mt-4 text-center py-3">
+        <a href="OrderFromStoreStep.html">
+          <button style="width: 100%;">
+            <h4>Order From Store</h4>
+          </button>
+        </a>
+      </div>
+
+      <div class="col-mt-4 text-center py-3">
+        <a href="another_page.html">
+          <button style="width: 100%;">
+            <h4>Order From Category</h4>
+          </button>
+        </a>
+      </div>
+
+      <div class="col-mt-4 text-center py-3">
+        <a href="another_page.html">
+          <button style="width: 100%;">
+            <h4>Registration</h4>
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-mt-4 post_card" id="Post_page" style="display: none;">
+      <!--Post  -->
+      <div id="cardContainer" class="card-container">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Coupon Calculation</h5>
+            <p id="userName">User's Name</p>
+            <p id="questionContent">User's Question Content</p>
+            <div class="icon-bar">
+              <i id="likeIcon" class="fa fa-book"></i> <!-- 图标表示收藏 -->
+              <span id="likeCount">0</span> <!-- 显示收藏数量 -->
+              <i class="far fa-comment"></i> <!-- 图标表示评论 -->
+              <span id="commentCount">0</span> <!-- 显示评论数量 -->
+              <i class="far fa-eye"></i> <!-- 图标表示浏览量 -->
+              <span id="viewCount">0</span> <!-- 显示浏览量 -->
+            </div>
+            <a href="DavidPost.html">Read More</a>
+          </div>
+        </div>
+        
+      </div>
+      <!--Post  -->
+
+
+    </div>
+    <div class="col-mt-4 post_card" id="post-form" style="display: none;">
+      <input type="text" id="user-name" placeholder="Your name">
+      <textarea id="post-content"></textarea>
+      <button id="submit-post-btn">Post</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="bottom">
+    <div class="row mt-3">
+      <!-- bottom nav -->
+      <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
+        <a class="navbar-brand" href="history.html"><i class="fa fa-undo"></i></a>
+
+        <button class="navbar-brand" id="PlusIcon" style="display: none;"><i class="fa fa-plus-square"></i></button>
+
+
+        <a class="navbar-brand" href="#"><i class="fa fa-comment"></i></a>
+        <a class="navbar-brand" href="#"><i class="fa fa-cog"></i></a>
+      </nav>
+    </div>
+
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="uber_eats.js"></script>
+
+
+
+
+</body>
+
+</html>

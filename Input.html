@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Post Submission Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="mainLayout.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #postForm {
+      width: 80vw; /* Set width to 80% of the viewport width */
+      max-width: 600px; /* Also set a max-width if needed */
+      margin: auto; /* Center the form horizontally */
+      padding: 2vh 0; /* Add some vertical padding */
+      box-sizing: border-box; /* Include padding in the width calculation */
+    }
+    input, textarea, button {
+      width: 100%; /* Make inputs stretch to the full width of the form */
+      padding: 10px; /* Add some padding inside inputs */
+      margin-bottom: 10px; /* Add some space between inputs */
+      box-sizing: border-box; /* Include padding in the width calculation */
+    }
+    @media (max-width: 600px) {
+      #postForm {
+        width: 95vw; /* Increase width to 95% of the viewport width on small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form id="postForm" action="uber_eats.html" method="get"> <!-- 使用GET方法来直接将表单数据作为查询字符串 -->
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="6" required></textarea>
+      </div>
+
+      <div>
+        <!-- 提交按钮不需要ID，除非JavaScript要用到它 -->
+        <button type="submit" style="font-size: 20px; font-weight: bold; background-color: #b2fab4;">Post</button>
+      </div>
+  </form>
+  
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
+    <a class="navbar-brand" href="history.html"><i class="fa fa-undo"></i></a>
+    <a class="navbar-brand" href="#"><i class="fa fa-comment"></i></a>
+    <a class="navbar-brand" href="#"><i class="fa fa-cog"></i></a>
+  </nav>
+  
+
+</body>
+</html>
+
+<script>
+  document.getElementById('postForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // 防止表单默认提交
+    var name = document.getElementById('name').value;
+    var title = document.getElementById('title').value;
+    var content = document.getElementById('content').value;
+
+    // 构建查询字符串
+    var queryString = `triggerPost=true&triggerInput=true&name=${encodeURIComponent(name)}&title=${encodeURIComponent(title)}&content=${encodeURIComponent(content)}`;
+    // 重定向到指定的URL
+    window.location.href = 'uber_eats.html?' + queryString;
+  });
+</script>

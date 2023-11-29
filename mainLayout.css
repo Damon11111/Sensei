@@ -1,0 +1,76 @@
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.post_card {
+  width: 300px;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+
+.gradient-background {
+  background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+  background-size: 300% 300%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#teacher {
+  border-radius: 50%;
+}
+
+.img-icon {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+
+}
+
+
+.dark-mode {
+  --background-color: #333;
+  --text-color: #ecf0f1;
+  --h6-color: #ecf0f1;
+}
+
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+}
+
+#collectContainer {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+

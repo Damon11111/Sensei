@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <link rel="stylesheet" href="mainLayout.css">
+</head>
+
+
+
+<body>
+  <section class="gradient-background" id="top-area">
+    <div class="container-fluid">
+      <!-- top nav -->
+      <nav class="navbar navbar-light">
+        <div class="navbar-brand">
+          <button onclick="search()" style="background: none; border: none; cursor: pointer;">
+            <i class="fa fa-search"></i>
+          </button>
+          <input type="text" id="Search" placeholder="Search here" style="width: 80%;">
+          <img src="img/profit.png" height="50%" width="20%" id="teacher">
+        </div>
+
+        <div class="navbar-brand">
+          <i class="fas fa-comments"></i>
+          <span id="talkButton"
+            style="font-weight:bold; cursor: pointer; color: #000000; text-decoration: none;">Talk</span>
+          <div id="Response"></div>
+        </div>
+
+        <div class="navbar-brand">
+          <a href="#" id="modeToggle" style="font-size:12px; cursor:pointer; color:inherit; text-decoration:none;">
+            <i class="fas fa-sun" style="font-size:22px; color:orange;"></i>
+            <span style="font-weight:bold;">/</span>
+            <i class="fas fa-moon" style="font-size:18px; color:antiquewhite;"></i>
+          </a>
+          <div id="mode"></div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- service icon -->
+  <section id="mid-area">
+    <div class="container">
+      <div class="row text-center mt-3 ">
+        <div class="col" id="collectIcon">
+          <i class="fa fa-book"></i>
+          <p id="collect">Collect</p>
+        </div>
+
+        <div class="col" id="foodIcon">
+          <i class="fa fa-utensils"></i>
+          <p id="Food" class="underline">Food</p>
+        </div>
+        <div class="col" id="mapIcon">
+          <i class="fa fa-map-marker-alt"></i>
+          <p id="Map">Map</p>
+        </div>
+        <div class="col" id="payIcon">
+          <i class="fa fa-wallet"></i>
+          <p id="Pay">Pay</p>
+        </div>
+      </div>
+
+
+      <!--collect-->
+      <div class="col" id="collectContainer" style="display: none; border: 2px solid #000;">
+        <div>
+          <!-- 添加一个删除按钮 -->
+          <button onclick="openConfirmModal()" style="background: none; border: none; cursor: pointer; float: right;">
+            <i class="fa fa-trash" style="color: red;"></i>
+          </button>
+          
+          <h5 class="card-title">Coupon Calculation</h5>
+          <p id="userName1">User's Name</p>
+          <p id="questionContent1">User's Question Content</p>
+          <i id="cancellike" class="fa fa-book" style="color: red;"></i>
+          <span id="likeCount1">0</span>
+          <i class="far fa-comment"></i>
+          <span id="commentCount1">0</span>
+          <i class="far fa-eye"></i>
+          <span id="viewCount1">0</span>
+        </div>
+      </div>
+      <!--collect end-->
+
+      <!-- 模态框开始 -->
+      <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmModalLabel">Confirmation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this item?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-danger" onclick="deleteCollectItem()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 模态框结束 -->
+
+      <!-- food icon -->
+      <div class="mt-3" id="foodServiceList">
+        <div class="container row mt-3 px-3">
+          <div class="col-4 text-center" id="uber">
+            <!-- <button type="button" onclick="loadDoc()"> -->
+            <a href="uber_eats.html">
+              <img src="img/uber eats.png" class="img-icon" alt="Button Image" style="width: 100%; height: 75%;">
+            </a>
+              <!-- Uber Eats</button> -->
+
+              <h6>Uber Eats</h6>
+           
+          </div>
+
+          <div class="col-4 text-center">
+            <a href="another_page.html">
+              <img src="img/doordash.png" class="img-icon" alt="Button Image" style="width: 100%; height: 75%;">
+
+            </a>
+            <h6>Door Dash</h6>
+          </div>
+
+          <div class="col-4 text-center">
+            <a href="another_page.html">
+              <img src="img/chowbus.png" class="img-icon" alt="Button Image"
+                style="width: 100%; height: 75%;border: 0.2px solid rgba(128, 128, 128, 0.5);">
+
+            </a>
+            <h6>Chowbus</h6>
+          </div>
+        </div>
+
+        <div class="container row mt-3 px-3 py-3">
+          <div class="col-4 text-center">
+            <a href="another_page.html">
+              <img src="img/too-good-to-go.png" class="img-icon" alt="Button Image" style="width: 100%; height: 70%;">
+
+            </a>
+            <h6>Too-Good-To-Go</h6>
+          </div>
+
+          <div class="col-4 text-center">
+            <a href="another_page.html">
+              <img src="img/fantuan.png" class="img-icon" alt="Button Image" style="width: 100%; height: 70%;">
+
+            </a>
+            <H6>Fantuan</H6>
+          </div>
+
+          <div class="col-4 text-center">
+            <!-- <h5 class="card-title">Grub Hub</h5> -->
+            <a href="another_page.html">
+              <img src="img/grubhub.png" class="img-icon" alt="Button Image" style="width: 100%; height: 70%;">
+
+            </a>
+            <h6>Grubhub</h6>
+          </div>
+        </div>
+      </div>
+      <!--foodlist end-->
+
+      <!--maplist-->
+      <div class="container">
+        <div class="row mt-3" id="mapPage" style="display: none;">
+          <div class="container row mt-3 px-3">
+            <div class="col-4 text-center">
+              <a href="another_page.html">
+                <img src="img/apple map.png" class="img-icon" alt="Button Image" style="width: 100%; height: 75%;">
+              </a>
+              <h6>Apple Map</h6>
+            </div>
+
+            <div class="col-4 text-center">
+              <a href="google_maps.html">
+                <img src="img/google map.png" class="img-icon" alt="Button Image" style="width: 100%; height: 75%;">
+
+                <h6>Google Map</h6>
+              </a>
+            </div>
+
+            <div class="col-4 text-center">
+              <a href="another_page.html">
+                <img src="img/waze-logo.png" class="img-icon" alt="Button Image" style="width: 100%; height: 75%;">
+              </a>
+              <h6>Waze Map</h6>
+            </div>
+          </div>
+
+          <div class="container row mt-3 px-3 py-3">
+            <div class="col-4 text-center">
+              <a href="another_page.html">
+                <img src="img/baidu_icon.png" class="img-icon" alt="Button Image" style="width: 100%; height: 70%;">
+              </a>
+              <h6>Baidu Map</h6>
+            </div>
+
+            <!-- The following two divs are placeholders for additional content if needed, matching the layout of the first block -->
+            <div class="col-4 text-center">
+              <!-- Placeholder for additional content -->
+            </div>
+
+            <div class="col-4 text-center">
+              <!-- Placeholder for additional content -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--map end-->
+
+
+      <!--paylist-->
+      <div class="container">
+        <div class="row mt-3" id="payPage" style="display: none;">
+          <div class="container row mt-2 px-3">
+            <div class="col-4 text-center">
+              <a href="#">
+                <img src="img/applepay.png" class="img-icon" alt="Apple Pay" style="width: 100%; height: 75%;">
+              </a>
+              <h6>Apple Pay</h6>
+            </div>
+
+            <div class="col-4 text-center">
+              <a href="#">
+                <img src="img/googlepay.png" class="img-icon" alt="Google Pay" style="width: 100%; height: 75%;">
+              </a>
+              <h6>Google Pay</h6>
+            </div>
+
+            <div class="col-4 text-center">
+              <a href="#">
+                <img src="img/alipay.png" class="img-icon" alt="Alipay" style="width: 100%; height: 75%;">
+              </a>
+              <h6>Alipay</h6>
+            </div>
+          </div>
+
+          <div class="container row mt-0 px-3 py-3">
+            <div class="col-4 text-center">
+              <a href="#">
+                <img src="img/paypal.png" class="img-icon" alt="Paypal"
+                  style="width: 100%; height: auto; border: 0.2px solid rgba(128, 128, 128, 0.5);">
+              </a>
+              <h6>Paypal</h6>
+            </div>
+            <!-- The following two divs are placeholders in case you want to add more payment options -->
+            <div class="col-4 text-center">
+              <!-- Placeholder for another payment option -->
+            </div>
+            <div class="col-4 text-center">
+              <!-- Placeholder for another payment option -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--paylist end-->
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="row mt-3">
+      <!-- bottom nav -->
+      <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
+        <a class="navbar-brand" href="history.html"><i class="fa fa-undo"></i></a>
+        <a class="navbar-brand" href="#"><i class="fa fa-comment"></i></a>
+        <a class="navbar-brand" href="#"><i class="fa fa-cog"></i></a>
+      </nav>
+    </div>
+  </section>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
